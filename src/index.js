@@ -17,3 +17,6 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+// {
+//   /* <BrowserRouter basename="/goit-react-hw-08-phonebook"></BrowserRouter> */
+// }

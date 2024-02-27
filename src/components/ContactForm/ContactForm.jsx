@@ -5,9 +5,8 @@ import styles from './contact-form.module.css';
 
 const INITIAL_STATE = {
   name: '',
-  phone: '',
+  number: '',
 };
-// phone instead of number
 
 const ContactForm = ({ onSubmit }) => {
   const [state, setState] = useState({ ...INITIAL_STATE });
@@ -33,8 +32,8 @@ const ContactForm = ({ onSubmit }) => {
   const phoneBookID = useMemo(() => nanoid(), []);
   const phoneNumberID = useMemo(() => nanoid(), []);
 
-  const { name, phone } = state;
-
+  const { name, number } = state;
+  // number instead of phone
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.phonebook}>
@@ -49,10 +48,11 @@ const ContactForm = ({ onSubmit }) => {
           required
         ></input>
         <label htmlFor={phoneNumberID}>Number</label>
+        {/* // number instead of phone value={number} */}
         <input
-          value={phone}
+          value={number}
           type="tel"
-          name="phone"
+          name="number"
           onChange={handleChange}
           id={phoneNumberID}
           placeholder="enter phone number"

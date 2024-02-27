@@ -8,16 +8,6 @@ import {
   deleteContact,
 } from './contacts-operations';
 
-// const pending = state => {
-//   state.isLoading = true;
-//   state.error = null;
-// };
-
-// const rejected = (state, { payload }) => {
-//   state.isLoading = false;
-//   state.error = payload;
-// };
-
 const initialState = {
   items: [],
   isLoading: false,

@@ -8,13 +8,17 @@ import contactsReducer from './contacts/contacts-slice';
 import filterReducer from './filter/filter-slice';
 
 const persistConfig = {
-  key: 'contacts',
+  key: 'root',
   storage,
-  whitelist: ['contacts'],
+  whitelist: ['token'],
+  // key: 'contacts',
+  // storage,
+  // whitelist: ['contacts'],
 };
+const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 
 const rootReducer = combineReducers({
-  auth: authReducer,
+  auth: persistedAuthReducer,
   contacts: contactsReducer,
   filter: filterReducer,
 });

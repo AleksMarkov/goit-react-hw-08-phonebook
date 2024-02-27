@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   name: '',
   number: '',
 };
-
+// number instead of phone
 const ContactForm = ({ onSubmit }) => {
   const [state, setState] = useState({ ...INITIAL_STATE });
 

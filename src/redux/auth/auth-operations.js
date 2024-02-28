@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import {
   signupRequest,
   loginRequest,
@@ -43,6 +42,7 @@ export const current = createAsyncThunk(
     }
   },
   {
+    // If the token does not exist, the condition evaluates to false
     condition: (_, { getState }) => {
       const { auth } = getState();
       if (!auth.token) {

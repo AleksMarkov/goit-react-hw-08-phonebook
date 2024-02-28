@@ -8,6 +8,7 @@ import AppRoutes from './AppRoutes';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(current());
   }, [dispatch]);

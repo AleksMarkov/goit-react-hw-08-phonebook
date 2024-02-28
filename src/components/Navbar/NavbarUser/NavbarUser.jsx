@@ -6,9 +6,11 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 
 import styles from './navbar-user.module.css';
 
-const NavbarUser = ()=> {
+const NavbarUser = () => {
+  console.log(selectUser);
+  console.log(useSelector(selectUser));
   const { name } = useSelector(selectUser);
-
+  console.log(name);
   const dispatch = useDispatch();
 
   const onLogout = () => dispatch(logout());

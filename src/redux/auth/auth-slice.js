@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { signup, login, current, logout } from './auth-operations';
 
 import { pending, rejected } from '../../shared/functions/redux';
-
+// token:'',      -->     token: localStorage.getItem('token') ?? '',
 const initialState = {
   user: {},
-  token: '',
+  token: localStorage.getItem('token') ?? '',
   isLogin: false,
   isLoading: false,
   error: null,
@@ -24,6 +24,7 @@ const authSlice = createSlice({
         state.isLogin = true;
         state.isLoading = false;
         state.error = null;
+        // localStorage.setItem('token', payload.token); // Save token to localStorage
       })
       .addCase(signup.rejected, rejected)
       .addCase(login.pending, pending)
@@ -33,11 +34,13 @@ const authSlice = createSlice({
         state.isLogin = true;
         state.isLoading = false;
         state.error = null;
+        localStorage.setItem('token', payload.token); // Save token to localStorage
       })
       .addCase(login.rejected, rejected)
       .addCase(current.pending, pending)
       .addCase(current.fulfilled, (state, { payload }) => {
         state.user = payload;
+        state.token = localStorage.getItem('token'); // get token
         state.isLogin = true;
         state.isLoading = false;
         state.error = null;
@@ -52,6 +55,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.token = '';
         state.user = {};
+        localStorage.removeItem('token'); // Remove token from localStorage
       })
       .addCase(logout.rejected, rejected);
   },

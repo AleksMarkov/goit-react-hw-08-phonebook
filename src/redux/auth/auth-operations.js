@@ -29,6 +29,9 @@ export const login = createAsyncThunk(
     }
   }
 );
+// api.post(url, {...data})
+// .then((res) => dispatch(postSuccess(res.data)))
+// .catch(...)
 
 export const current = createAsyncThunk(
   'auth/current',
